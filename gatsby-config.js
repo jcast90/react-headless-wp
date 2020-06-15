@@ -5,7 +5,7 @@ module.exports = {
     title: `Gatsby`,
     description: `Gatsby + Headless WordPress`,
     author: `@acrockr`,
-    siteUrl: `https://gatsby-starter-headless-wp.netlify.com`
+    siteUrl: `https://dosdigital-dev.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,11 +31,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "dosdigital-dev",
+        protocol: "https",
+        hostname: "www.dosdigital-dev.com",
+      },
+    },
+    {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your wordpress source
-        baseUrl: `cms.botwrangler.me`,
-        protocol: `https`,
+        baseUrl: `wp.dosdigital-dev.com`,
+        protocol: `http`,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
         // does your site use the Advanced Custom Fields Plugin?
